@@ -7,8 +7,8 @@
  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="http://code.jquery.com/jquery.min.js"></script>
 	<script>/* github.com/nick-jonas/windows */(function(e,t,n,r){function h(t,n){this.element=t;u=u=e.extend({},o,n);this._defaults=o;this._name=s;c.push(t);var r=e(t).isOnScreen();e(t).data("onScreen",r);if(r)u.onWindowEnter(e(t))}var i=this,s="windows",o={snapping:true,snapSpeed:500,snapInterval:1100,onScroll:function(){},onSnapComplete:function(){},onWindowEnter:function(){}},u={},a=e(t),f=0,l=null,c=[];e.fn.ratioVisible=function(){var e=a.scrollTop();if(!this.isOnScreen())return 0;var t=this.offset();var n=t.top-e;var r=a.height();var i=(n+r)/r;if(i>1)i=1-(i-1);return i};e.fn.isOnScreen=function(){var e=a.scrollTop(),t=a.height(),n=this.offset(),r=n.top-e;return r>=t||r<=-t?false:true};var p=e.fn.getCurrentWindow=function(){var t=0,n=c[0];e.each(c,function(r){var i=e(this).ratioVisible();if(Math.abs(i)>Math.abs(t)){n=e(this);t=i}});return e(n)};var d=function(){f=a.scrollTop();m();u.onScroll(f);e.each(c,function(t){var n=e(this),r=n.isOnScreen();if(r){if(!n.data("onScreen"))u.onWindowEnter(n)}n.data("onScreen",r)})};var v=function(){m()};var m=function(){if(l){clearTimeout(l)}if(u.snapping){l=setTimeout(function(){var t=p(),n=t.offset().top,r=false;e("html:not(:animated),body:not(:animated)").animate({scrollTop:n},u.snapSpeed,function(){if(!r){if(l){clearTimeout(l)}l=null;r=true;u.onSnapComplete(t)}})},u.snapInterval)}};e.fn[s]=function(t){a.scroll(d);a.resize(v);return this.each(function(n){if(!e.data(this,"plugin_"+s)){e.data(this,"plugin_"+s,new h(this,t))}})}})(jQuery,window,document)</script>
-	<link href='http://fonts.googleapis.com/css?family=Noto+Serif' rel='stylesheet' type='text/css'>
-	<style>*{margin:0;padding:0;}html,body{height:100%;background:#E8E8EE;}.main-container{width:100%;height:100%}canvas{display:block;margin:50px auto;}.window{width:100%;height:100%;position:absolute}.window:nth-child(1){background:#E8E8EE;color:#222438;top:0}.window:nth-child(2){background:#222438;color:#E8E8EE;top:100%}.window:nth-child(2) .content{margin:50px 100px}.window:nth-child(2) .content h1{font-weight:400;font-size:50px;font-family:'Noto Serif', serif;text-shadow:0 2px 1px #000}.vcard{display:none;}</style>
+	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	<style>*{margin:0;padding:0;}html,body{height:100%;background:#E8E8EE;}.main-container{width:100%;height:100%}canvas{display:block;margin:50px auto;}.window{width:100%;height:100%;position:absolute}.window:nth-child(1){background:#E8E8EE;color:#222438;top:0}.window:nth-child(2){background:#222438;color:#E8E8EE;top:100%}.window:nth-child(2) .content{margin:50px 100px}.window:nth-child(2) .content h1{font-weight:400;font-size:50px;font-family:'Pacifico', serif;text-shadow:0 2px 1px #000}.content h2{font-weight:300;font-size:40px;font-family:'Pacifico', serif;text-shadow:0 2px 1px #000, height: 0px; position:absolute; bottom:50px; right:100px;}</style>
 </head>
 <body>
 <section id="0" class="window">
@@ -16,6 +16,14 @@
 		<div class="main-container">
 			<canvas></canvas>
 			<script>/* github.com/hakimel/Hypnos */(function(){function f(){for(var e=0;e<s;e++){o.push({x:n/2+Math.sin(e/s*2*Math.PI)*(i-u),y:r/2+Math.cos(e/s*2*Math.PI)*(i-u),r:e/s*Math.PI})}l();c()}function l(){e.width=n;e.height=r}function c(){requestAnimationFrame(c);h();p();d()}function h(){for(var e=0,t=o.length;e<t;e++){o[e].r+=.01}}function p(){t.clearRect(0,0,e.width,e.height)}function d(){var e=o.length;for(var n=e-a,r=e;n<r;n++){t.save();t.globalCompositeOperation="destination-over";v(o[n]);t.restore()}t.save();t.globalCompositeOperation="destination-in";v(o[0],true);t.restore();for(var n=0,r=e;n<r;n++){t.save();t.globalCompositeOperation="destination-over";v(o[n]);t.restore()}}function v(e,n){size=u+(n?10:0);size2=size/2;t.translate(e.x,e.y);t.rotate(e.r);if(!n){t.strokeStyle="#222438";t.lineWidth=1;t.strokeRect(-size2,-size2,size,size)}t.fillStyle="#E8E8EE";t.fillRect(-size2,-size2,size,size)}var e=document.querySelector("canvas"),t=e.getContext("2d"),n=window.innerWidth*.7,r=window.innerHeight*.7,i=Math.min(n,r)*.5,s=180,o=[],u=i*.25,a=Math.round(s*.1);(function(){var e=0;var t=["ms","moz","webkit","o"];for(var n=0;n<t.length&&!window.requestAnimationFrame;++n){window.requestAnimationFrame=window[t[n]+"RequestAnimationFrame"];window.cancelAnimationFrame=window[t[n]+"CancelAnimationFrame"]||window[t[n]+"CancelRequestAnimationFrame"]}if(!window.requestAnimationFrame)window.requestAnimationFrame=function(t,n){var r=(new Date).getTime();var i=Math.max(0,16-(r-e));var s=window.setTimeout(function(){t(r+i)},i);e=r+i;return s};if(!window.cancelAnimationFrame)window.cancelAnimationFrame=function(e){clearTimeout(e)}})();f()})()</script>
+		</div>
+	</div>
+</section>
+<section id="1" class="window">
+	<div class="content">
+		<div class="main-container">
+			<h1>Anything is possible...</h1>
+			<h2>When you put your mind to it!</h2>
 		</div>
 	</div>
 </section>
