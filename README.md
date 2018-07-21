@@ -1,4 +1,4 @@
 mavroudis.github.io
 ===================
 
-Mavroudis Free User Page
+Profle site for Michael J. Mavroudis hosted on Github's CDN.
