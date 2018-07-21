@@ -8,7 +8,7 @@
 	<script src="http://code.jquery.com/jquery.min.js"></script>
 	<script>/* github.com/nick-jonas/windows */(function(e,t,n,r){function h(t,n){this.element=t;u=u=e.extend({},o,n);this._defaults=o;this._name=s;c.push(t);var r=e(t).isOnScreen();e(t).data("onScreen",r);if(r)u.onWindowEnter(e(t))}var i=this,s="windows",o={snapping:true,snapSpeed:500,snapInterval:1100,onScroll:function(){},onSnapComplete:function(){},onWindowEnter:function(){}},u={},a=e(t),f=0,l=null,c=[];e.fn.ratioVisible=function(){var e=a.scrollTop();if(!this.isOnScreen())return 0;var t=this.offset();var n=t.top-e;var r=a.height();var i=(n+r)/r;if(i>1)i=1-(i-1);return i};e.fn.isOnScreen=function(){var e=a.scrollTop(),t=a.height(),n=this.offset(),r=n.top-e;return r>=t||r<=-t?false:true};var p=e.fn.getCurrentWindow=function(){var t=0,n=c[0];e.each(c,function(r){var i=e(this).ratioVisible();if(Math.abs(i)>Math.abs(t)){n=e(this);t=i}});return e(n)};var d=function(){f=a.scrollTop();m();u.onScroll(f);e.each(c,function(t){var n=e(this),r=n.isOnScreen();if(r){if(!n.data("onScreen"))u.onWindowEnter(n)}n.data("onScreen",r)})};var v=function(){m()};var m=function(){if(l){clearTimeout(l)}if(u.snapping){l=setTimeout(function(){var t=p(),n=t.offset().top,r=false;e("html:not(:animated),body:not(:animated)").animate({scrollTop:n},u.snapSpeed,function(){if(!r){if(l){clearTimeout(l)}l=null;r=true;u.onSnapComplete(t)}})},u.snapInterval)}};e.fn[s]=function(t){a.scroll(d);a.resize(v);return this.each(function(n){if(!e.data(this,"plugin_"+s)){e.data(this,"plugin_"+s,new h(this,t))}})}})(jQuery,window,document)</script>
 	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-	<style>*{margin:0;padding:0}html,body{height:100%;background:#E8E8EE}.main-container{width:100%;height:100%}canvas{display:block;margin:50px auto}.window{width:100%;height:100%;position:absolute}.window:nth-child(1){background:#E8E8EE;color:#222438;top:0}.window:nth-child(2){background:#222438;color:#E8E8EE;top:100%}.window:nth-child(2) .content{margin:50px 100px}.window:nth-child(2) .content h1{font-weight:400;font-size:50px;font-family:'Pacifico',serif;text-shadow:0 2px 1px #000}.content h2{font-weight:300;font-size:40px;font-family:'Pacifico',serif;text-shadow:0 2px 1px #000,height: 0;position:absolute;bottom:50px;right:100px}</style>
+	<style>.main-container,.window{width:100%;height:100%}.window:nth-child(2) .content h1,.window:nth-child(3) .content h1{font-weight:400;font-size:50px;text-shadow:0 2px 1px #000;font-family:Pacifico,serif}.content h2,.content p,.window:nth-child(2) .content h1,.window:nth-child(3) .content h1{font-family:Pacifico,serif}.content h2,.content p,.window{position:absolute}*{margin:0;padding:0}body,html{height:100%;background:#E8E8EE}canvas{display:block;margin:50px auto}.window:nth-child(2) .content,.window:nth-child(3) .content{margin:50px 100px}.window:nth-child(1){background:#E8E8EE;color:#222438;top:0}.window:nth-child(2){background:#222438;color:#E8E8EE;top:100%}.window:nth-child(3){background:#E8E8EE;color:#222438;top:200%}.content h2{font-weight:300;font-size:40px;text-shadow:0 2px 1px #000,height: 0;bottom:50px;right:100px}.content p{width:30%;font-size:18px}.content a:hover{color:#E8E8EE;text-decoration:underline}.content a:active,.content a:visited{color:#E8E8EE}@media screen and (max-width:641px){.content p{width:65%;text-align:left;font-size:12px;font-family:Pacifico,serif;position:absolute;right:100px}.youtube{visibility:hidden;clear:both;float:right;text-align:right;display:none}}</style>
 </head>
 <body>
 <section id="0" class="window">
@@ -22,11 +22,24 @@
 <section id="1" class="window">
 	<div class="content">
 		<div class="main-container">
+			<div class="main-mobile" style="float: left;">
+				<h1>Michael Mavroudis</h1>
+				<p><br/>Michael Mavroudis is the Community Liaison for the <a href="http://www.freeswitch.org">FreeSWITCH project</a> as well as the owner of <a href="http://www.voicetel.com">VoiceTel</a> a VoIP provider committed to the delivery of superior quality, highly resilient, and fault tolerant IP-based telecommunications services.<br/><br/>He's a regularly featured speaker at global telecommunication conferences as well as the host of Cluecon Weekly. He along with other members of the FreeSWITCH team frequently interview various open-source captains of the telecommunication industry.<br/><br/>Michael is an outdoor enthusiast and enjoys spending his free time chasing adrenaline derived from extreme sports ;)</p>
+			</div>
+			<div class="youtube" style="float: right; text-align: right;">
+				<iframe id="youtube_video" width="400" height="225" frameborder="0" allowfullscreen></iframe>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="2" class="window">
+	<div class="content">
+		<div class="main-container">
 			<h1>Anything is possible...</h1>
 			<h2>When you put your mind to it!</h2>
 		</div>
 	</div>
 </section>
-<script>$(document).ready(function(){var e=$(".window");e.windows({snapping:true,snapSpeed:500,snapInterval:1100,onScroll:function(e){},onSnapComplete:function(e){},onWindowEnter:function(e){}})})</script>
+<script>$(document).ready(function(){$(".window").windows({snapping:!0,snapSpeed:500,snapInterval:1100,onScroll:function(n){},onSnapComplete:function(n){},onWindowEnter:function(n){}});$.getJSON("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.youtube.com%2Ffeeds%2Fvideos.xml%3Fchannel_id%3DUC0i2xbniNHJQNfPPs_v4T0Q",function(n){var o=n.items[0].link,t=o.substr(o.indexOf("=")+1);$("#youtube_video").attr("src","https://youtube.com/embed/"+t+"?controls=0&showinfo=0&rel=0")})});</script>
 </body>
 </html>
